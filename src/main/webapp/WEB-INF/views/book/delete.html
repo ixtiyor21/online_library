@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragment.html :: head('Book Create')">
+</head>
+<body>
+<section th:include="fragment.html :: navbar"></section>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-6 mx-auto">
+            <form th:action="@{/book/delete/{id}/(id = ${book.id})}" th:method="post">
+                <p class="h6">Are you sure delete <span class="h2" th:text="${book.name}"></span> </p>
+                <a th:href="@{/book/list/}" class="btn btn-warning">No</a>
+                <button th:type="submit" class="btn btn-danger">Yes</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

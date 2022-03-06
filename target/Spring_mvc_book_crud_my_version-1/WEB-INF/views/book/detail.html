@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragment.html :: head('Book Detail')">
+</head>
+<body>
+<section th:include="fragment.html :: navbar"></section>
+<div class="container mt-5">
+    <div class="row">
+        <ul th:object="${book.resourceBook}">
+                                 <h1>Book detail : </h1>
+                                <li th:text="'Original name : '+*{originalName}"></li>
+                                <li th:text="'Size : '+*{size}"></li>
+                                <li th:text="'Content type : '+*{contentType}"></li>
+                                <li>
+                                    <a th:href="*{path}" th:text="'Download book : '+*{originalName}"></a>
+                                </li>
+                                 <span>Picture : <span/><br/><li>
+                                     <a th:href="${book.pathImage}">
+                                     <img width="250px" height="250px" th:src="${book.pathImage}"/>
+                                     <a/>
+                                 </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
